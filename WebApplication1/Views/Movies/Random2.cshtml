@@ -1,0 +1,32 @@
+﻿
+<!--importing 'RandomMovieViewModel' so we can reference its properties-->
+@model WebApplication1.ViewModels.RandomMovieViewModel
+
+@{
+    ViewBag.Title = "Random2";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    var className = Model.Customers.Count > 5 ? "popular" : null;       //'className is used by h2 below, if 'className' is null, then such class will not be assigned to h2
+}                                                                     
+
+<h2 class="@className">@Model.Movie.name</h2>                           <!--'className' is dynamically assigned, 'popular' if more than 5 customers, or 'null' if otherwise-->
+
+@if (Model.Customers.Count == 0)
+{
+    <p>No one has rented this movie before</p>
+}
+else
+{
+    <ul>
+        @foreach (var customer in Model.Customers)
+        {
+            <li>@customer.name</li>                                     <!--html code can be used here as well-->
+        }
+    </ul>
+}
+    
+
+
+

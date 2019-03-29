@@ -1,0 +1,12 @@
+﻿<!--importing 'Movie' model, so we can reference the properties inside such as 'name' and 'id'-->
+@model WebApplication1.Models.Movie
+
+
+<!--C# code-->
+@{ 
+    ViewBag.Title = "Random";
+    Layout = "~/Views/Shared/_Layout.cshtml";       //the layer we're using
+}
+
+<h2>@Model.name</h2>
+
